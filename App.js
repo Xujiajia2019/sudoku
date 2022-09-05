@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { 
+  StyleSheet,
+  StatusBar,
+  UIManager,
+  View 
+} from 'react-native';
+
+import Main from './components/Containers';
+
+UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+class App extends Component {
+  render() {
+    return (
+      <View style={styles.container} >
+        <StatusBar backgroundColor='transparent' animated={true} translucent={true} barStyle="light-content"/>
+        <Main />
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    flex: 1
+  }
+})
+
+export default App
